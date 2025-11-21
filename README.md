@@ -1,5 +1,7 @@
 
-https://expensetacker-one.vercel.app/Smart Expense Tracker
+ Live Demo:https://expensetacker-one.vercel.app/
+
+Smart Expense Tracker
 
 A lightweight, mobile-first, offline-ready expense tracking application built with HTML, CSS, and Vanilla JavaScript.
 Designed for clarity, accuracy, and real-world usability. Includes category filtering, editing, deleting, LocalStorage persistence, and responsive UI components.
