@@ -1,0 +1,358 @@
+/* ============================= */
+/*        GLOBAL RESET           */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "Inter", sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    height: 100%;
+}
+
+/* ============================= */
+/*         DESIGN TOKENS         */
+/* ============================= */
+
+:root {
+    --primary: #4f46e5;
+    /* Indigo 600 */
+    --primary-light: #6366f1;
+    --danger: #ef4444;
+    /* Red 500 */
+    --success: #10b981;
+    /* Green 500 */
+
+    --bg-white: #ffffff;
+    --bg-light: #f9fafb;
+    --text-dark: #111827;
+    --text-light: #6b7280;
+
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================= */
+/*        APP CONTAINER          */
+/* ============================= */
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    padding: 1.5rem;
+}
+
+/* ============================= */
+/*             HEADER            */
+/* ============================= */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ============================= */
+/*        SUMMARY SECTION        */
+/* ============================= */
+.summary {
+    background: var(--bg-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.summary h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.balance-box {
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+
+.balance-box p {
+    color: var(--text-light);
+}
+
+.balance-box h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.income-expense {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.income, .expense {
+    width: 48%;
+    background: var(--bg-light);
+    padding: 1rem;
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.income h4 {
+    color: var(--success);
+    font-size: 1.4rem;
+}
+
+.expense h4 {
+    color: var(--danger);
+    font-size: 1.4rem;
+}
+
+/* ============================= */
+/*    ADD TRANSACTION FORM       */
+/* ============================= */
+.add-transaction {
+    background: var(--bg-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.add-transaction h2 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background: var(--bg-light);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.9rem;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+    background: var(--primary-light);
+}
+
+/* ============================= */
+/*       TRANSACTION LIST        */
+/* ============================= */
+.transactions {
+    background: var(--bg-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+}
+
+.transactions h2 {
+    margin-bottom: 1rem;
+}
+
+#transaction-list {
+    list-style: none;
+}
+
+#transaction-list li {
+    background: var(--bg-light);
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    border-left: 5px solid var(--primary);
+    transition: transform 0.15s ease;
+}
+
+#transaction-list li:hover {
+    transform: translateX(4px);
+}
+
+/* Expense → red border */
+.expense-item {
+    border-left-color: var(--danger) !important;
+}
+
+/* Income → green border */
+.income-item {
+    border-left-color: var(--success) !important;
+}
+
+/* ============================= */
+/*         RESPONSIVENESS        */
+/* ============================= */
+
+/* Tablets */
+@media (min-width: 600px) {
+    .app-container {
+        max-width: 640px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+    .app-container {
+        max-width: 800px;
+    }
+
+    .income-expense {
+        gap: 1rem;
+    }
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    /* Gray-400 */
+    transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+    /* Red-500 */
+    transform: scale(1.1);
+}
+
+.timestamp {
+    color: #9ca3af;
+    /* Gray-400 */
+    font-size: 0.75rem;
+}
+
+.error-message {
+    color: #ef4444;
+    /* red-500 */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.filter-section {
+    margin-bottom: 1.5rem;
+}
+
+#filter-category {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: var(--radius);
+    border: 1px solid #ddd;
+    background: var(--bg-light);
+    margin-top: 0.5rem;
+}
+
+/* ============================= */
+/*         Edit Button           */
+/* ============================= */
+.edit-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+    margin-left: 0.5rem;
+    color: #6b7280;
+    /* gray-500 */
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.edit-btn:hover {
+    color: #4f46e5;
+    /* indigo-600 */
+    transform: scale(1.1);
+}
+
+/* ============================= */
+/*      Cancel Edit Button       */
+/* ============================= */
+.cancel-edit-btn {
+    background: #e5e7eb;
+    /* gray-200 */
+    color: #374151;
+    /* gray-700 */
+    border: none;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    transition: background 0.2s ease;
+}
+
+.cancel-edit-btn:hover {
+    background: #d1d5db;
+    /* gray-300 */
+}
+
+/* ============================= */
+/*           Toast UI            */
+/* ============================= */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4f46e5;
+    /* indigo */
+    color: white;
+    padding: 0.9rem 1.2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(20px);
+    font-size: 0.95rem;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
